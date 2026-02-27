@@ -10,5 +10,10 @@
   ],
   "files": [
     "bin"
-  ]
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/swalker326/better-worktrees",
+    "directory": "packages/better-worktree-linux-arm64"
+  }
 }

@@ -61,6 +61,15 @@ for file in "${PACKAGE_FILES[@]}"; do
     const version = process.env.NEW_VERSION;
     const data = JSON.parse(fs.readFileSync(file, "utf8"));
     data.version = version;
+
+    if (file === "packages/better-worktree/package.json" && data.optionalDependencies) {
+      for (const key of Object.keys(data.optionalDependencies)) {
+        if (key.startsWith("better-worktree-")) {
+          data.optionalDependencies[key] = version;
+        }
+      }
+    }
+
     fs.writeFileSync(file, `${JSON.stringify(data, null, 2)}\n`);
   '
 done

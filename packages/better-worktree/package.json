@@ -16,14 +16,14 @@
     "access": "public"
   },
   "optionalDependencies": {
-    "better-worktree-darwin-arm64": "0.1.0",
-    "better-worktree-darwin-x64": "0.1.0",
-    "better-worktree-linux-arm64": "0.1.0",
-    "better-worktree-linux-arm64-musl": "0.1.0",
-    "better-worktree-linux-x64": "0.1.0",
-    "better-worktree-linux-x64-musl": "0.1.0",
-    "better-worktree-windows-arm64": "0.1.0",
-    "better-worktree-windows-x64": "0.1.0"
+    "better-worktree-darwin-arm64": "0.1.3",
+    "better-worktree-darwin-x64": "0.1.3",
+    "better-worktree-linux-arm64": "0.1.3",
+    "better-worktree-linux-arm64-musl": "0.1.3",
+    "better-worktree-linux-x64": "0.1.3",
+    "better-worktree-linux-x64-musl": "0.1.3",
+    "better-worktree-windows-arm64": "0.1.3",
+    "better-worktree-windows-x64": "0.1.3"
   },
   "engines": {
     "node": ">=18"
@@ -36,7 +36,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/swalker326/better-worktrees.git",
+    "url": "https://github.com/swalker326/better-worktrees",
     "directory": "packages/better-worktree"
   },
   "bugs": {
