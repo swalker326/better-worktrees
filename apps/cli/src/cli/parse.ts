@@ -10,6 +10,10 @@ import {
   runRepoUseCommand,
 } from "./commands/repo";
 
+function getVersion(): string {
+  return process.env.BWT_VERSION ?? process.env.npm_package_version ?? "0.0.0-dev";
+}
+
 type ParsedFlags = Record<string, string | boolean | string[]>;
 
 function assignFlag(flags: ParsedFlags, key: string, value: string | boolean) {
@@ -77,6 +81,7 @@ function printHelp() {
   console.log(`bwt - Better WorkTree\n
 Usage:
   bwt                       Launch TUI
+  bwt --version             Show version
   bwt list [-R <repo>] [--json]
   bwt create <name> [-R <repo>] [--branch <branch>] [--base <base>] [--path <dir>] [--json]
   bwt delete <target> [-R <repo>] [--yes] [--force]
@@ -114,6 +119,11 @@ export async function runCli(argv: string[]) {
   const [command, ...rest] = argv;
   if (!command || command === "help" || command === "--help" || command === "-h") {
     printHelp();
+    return;
+  }
+
+  if (command === "version" || command === "--version" || command === "-v") {
+    console.log(getVersion());
     return;
   }
 

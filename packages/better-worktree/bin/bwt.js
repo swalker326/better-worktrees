@@ -7,6 +7,7 @@ import { createRequire } from "node:module";
 import { resolvePlatformPackage } from "../scripts/platform.js";
 
 const require = createRequire(import.meta.url);
+const launcherVersion = require("../package.json").version;
 
 function resolveBinaryPath(packageName, binaryName) {
   const packageJsonPath = require.resolve(`${packageName}/package.json`);
@@ -30,6 +31,10 @@ function run() {
   }
 
   const child = spawn(binaryPath, process.argv.slice(2), {
+    env: {
+      ...process.env,
+      BWT_VERSION: launcherVersion,
+    },
     stdio: "inherit",
     windowsHide: false,
   });
