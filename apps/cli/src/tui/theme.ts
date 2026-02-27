@@ -7,7 +7,7 @@ export const THEME = {
   
   primary: "#38bdf8",
   primaryBg: "#1e3a5f",
-  secondary: "#2dd4bf",
+  secondary: "#f472b6",
   success: "#4ade80",
   warning: "#fbbf24",
   muted: "#9ca3af",
@@ -17,7 +17,7 @@ export const THEME = {
   base: "#000000",
 
   accent: "#38bdf8",
-  accent2: "#2dd4bf",
+  accent2: "#f472b6",
 };
 
 export type TabKey = "worktrees" | "repositories" | "settings";

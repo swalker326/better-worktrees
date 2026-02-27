@@ -79,18 +79,29 @@ export function App() {
         borderColor={THEME.borderFocus}
         backgroundColor={THEME.panelAlt}
         padding={1}
+        flexDirection="row"
+        justifyContent="space-between"
+        flexWrap="wrap"
+        gap={1}
       >
         <text>
           <strong>
             <span fg={THEME.primary}>Better WorkTree</span>
           </strong>
-          <span fg={THEME.mutedSecondary}> O open path P settings R refresh</span>
           <span fg={THEME.mutedSecondary}> | </span>
           <span fg={THEME.secondary}>
             {state.activeRepoPath
               ? collapseHome(state.activeRepoPath)
               : "no repo selected"}
           </span>
+        </text>
+        <text>
+          <span fg={THEME.primary}>[O]</span>
+          <span fg={THEME.mutedSecondary}> open path </span>
+          <span fg={THEME.primary}>[P]</span>
+          <span fg={THEME.mutedSecondary}> settings </span>
+          <span fg={THEME.primary}>[R]</span>
+          <span fg={THEME.mutedSecondary}> refresh</span>
         </text>
       </box>
 

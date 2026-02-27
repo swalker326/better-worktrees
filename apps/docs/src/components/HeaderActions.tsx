@@ -8,7 +8,7 @@ export function HeaderActions() {
       <Button asChild variant="link" className="h-auto p-0 text-[13px] no-underline hover:no-underline">
         <a href="/getting-started">Quick Start</a>
       </Button>
-      <Button asChild variant="ghost" size="icon" className="text-muted-foreground hover:bg-transparent">
+      <Button asChild variant="ghost" size="icon" className="text-muted-foreground hover:bg-transparent hover:text-secondary">
         <a
           href="https://github.com/swalker326/better-worktrees"
           target="_blank"

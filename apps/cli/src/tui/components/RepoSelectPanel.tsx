@@ -34,7 +34,7 @@ export function RepoSelectPanel(props: {
           options={options}
           focused={props.focused}
           selectedIndex={props.selectedIndex}
-          height={14}
+          flexGrow={1}
           showDescription
           showScrollIndicator
           selectedBackgroundColor={THEME.primaryBg}

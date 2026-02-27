@@ -54,7 +54,7 @@ const pathname = Astro.url.pathname;
                   <a
                     class={`block border-l-2 py-1 pl-2 text-[13px] no-underline transition-colors hover:text-foreground ${
                       isDocLinkActive(pathname, link.href)
-                        ? "border-l-accent/60 font-medium text-foreground"
+                        ? "border-l-secondary/70 font-medium text-secondary"
                         : "border-l-transparent text-muted-foreground"
                     }`}
                     href={link.href}

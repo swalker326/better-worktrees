@@ -17,7 +17,7 @@ export function CreateWorktreeModal(props: { draft: string; onChangeDraft: (valu
       </text>
       <input
         value={props.draft}
-        onChange={props.onChangeDraft}
+        onInput={props.onChangeDraft}
         focused
         placeholder="feature/new-worktree"
         backgroundColor={THEME.panelAlt}

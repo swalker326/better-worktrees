@@ -8,6 +8,7 @@
   --color-border: #242424;
   --color-ring: #38bdf8;
   --color-accent: #38bdf8;
+  --color-secondary: #f472b6;
 }
 
 @layer base {
@@ -30,7 +31,7 @@
   }
 
   a:hover {
-    @apply underline;
+    @apply text-accent underline;
   }
 
   h1,
@@ -103,7 +104,7 @@
   }
 
   .chip-link:hover {
-    @apply border-accent/30 bg-muted no-underline;
+    @apply border-secondary/40 bg-muted no-underline text-secondary;
   }
 
   .grid {
