@@ -3,16 +3,19 @@
   "private": true,
   "type": "module",
   "workspaces": [
-    "apps/*"
+    "apps/*",
+    "packages/*"
   ],
   "scripts": {
     "dev": "bun run --filter better-worktree-cli dev",
     "start": "bun run --filter better-worktree-cli start",
-    "test": "bun run --filter better-worktree-cli test",
+    "test": "bun test",
     "typecheck": "bun run --filter better-worktree-cli typecheck && bun run --filter better-worktree-docs typecheck",
+    "ci": "bun test && bunx tsc --noEmit && bun run --filter better-worktree-cli start -- --help && bun run docs:build",
     "docs:dev": "bun run --filter better-worktree-docs dev",
     "docs:build": "bun run --filter better-worktree-docs build",
-    "docs:preview": "bun run --filter better-worktree-docs preview"
+    "docs:preview": "bun run --filter better-worktree-docs preview",
+    "build:binaries": "bun run scripts/build-binaries.mjs"
   },
   "devDependencies": {
     "@types/bun": "latest",

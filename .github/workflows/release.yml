@@ -1,0 +1,75 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v*"
+
+jobs:
+  publish-npm:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: 1.3.10
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          registry-url: https://registry.npmjs.org
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile --os '*' --cpu '*'
+
+      - name: Validate release build
+        run: bun run ci
+
+      - name: Build platform binaries
+        run: bun run build:binaries
+
+      - name: Verify tag matches package versions
+        run: |
+          TAG_VERSION="${GITHUB_REF_NAME#v}"
+          for package in \
+            packages/better-worktree \
+            packages/better-worktree-darwin-arm64 \
+            packages/better-worktree-darwin-x64 \
+            packages/better-worktree-linux-arm64 \
+            packages/better-worktree-linux-arm64-musl \
+            packages/better-worktree-linux-x64 \
+            packages/better-worktree-linux-x64-musl \
+            packages/better-worktree-windows-arm64 \
+            packages/better-worktree-windows-x64; do
+            PACKAGE_VERSION=$(node -p "require('./$package/package.json').version")
+            if [ "$TAG_VERSION" != "$PACKAGE_VERSION" ]; then
+              echo "Tag version ($TAG_VERSION) does not match $package version ($PACKAGE_VERSION)."
+              exit 1
+            fi
+          done
+
+      - name: Publish platform packages
+        run: |
+          for package in \
+            packages/better-worktree-darwin-arm64 \
+            packages/better-worktree-darwin-x64 \
+            packages/better-worktree-linux-arm64 \
+            packages/better-worktree-linux-arm64-musl \
+            packages/better-worktree-linux-x64 \
+            packages/better-worktree-linux-x64-musl \
+            packages/better-worktree-windows-arm64 \
+            packages/better-worktree-windows-x64; do
+            npm publish --provenance --access public --workspace "$package"
+          done
+
+      - name: Publish launcher package
+        run: npm publish --provenance --access public --workspace packages/better-worktree
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

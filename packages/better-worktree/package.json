@@ -1,0 +1,46 @@
+{
+  "name": "better-worktree",
+  "version": "0.1.0",
+  "description": "Git worktree manager with one-off commands and an OpenTUI mode",
+  "private": false,
+  "type": "module",
+  "bin": {
+    "bwt": "bin/bwt.js"
+  },
+  "files": [
+    "bin",
+    "scripts",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "optionalDependencies": {
+    "better-worktree-darwin-arm64": "0.1.0",
+    "better-worktree-darwin-x64": "0.1.0",
+    "better-worktree-linux-arm64": "0.1.0",
+    "better-worktree-linux-arm64-musl": "0.1.0",
+    "better-worktree-linux-x64": "0.1.0",
+    "better-worktree-linux-x64-musl": "0.1.0",
+    "better-worktree-windows-arm64": "0.1.0",
+    "better-worktree-windows-x64": "0.1.0"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "keywords": [
+    "git",
+    "worktree",
+    "cli",
+    "tui"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/swalker326/better-worktrees.git",
+    "directory": "packages/better-worktree"
+  },
+  "bugs": {
+    "url": "https://github.com/swalker326/better-worktrees/issues"
+  },
+  "homepage": "https://github.com/swalker326/better-worktrees#readme"
+}

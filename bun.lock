@@ -11,6 +11,7 @@
     },
     "apps/cli": {
       "name": "better-worktree-cli",
+      "version": "0.1.0",
       "bin": {
         "bwt": "src/index.tsx",
       },
@@ -25,6 +26,55 @@
       "dependencies": {
         "astro": "^5.14.1",
       },
+    },
+    "packages/better-worktree": {
+      "name": "better-worktree",
+      "version": "0.1.0",
+      "bin": {
+        "bwt": "bin/bwt.js",
+      },
+      "optionalDependencies": {
+        "better-worktree-darwin-arm64": "0.1.0",
+        "better-worktree-darwin-x64": "0.1.0",
+        "better-worktree-linux-arm64": "0.1.0",
+        "better-worktree-linux-arm64-musl": "0.1.0",
+        "better-worktree-linux-x64": "0.1.0",
+        "better-worktree-linux-x64-musl": "0.1.0",
+        "better-worktree-windows-arm64": "0.1.0",
+        "better-worktree-windows-x64": "0.1.0",
+      },
+    },
+    "packages/better-worktree-darwin-arm64": {
+      "name": "better-worktree-darwin-arm64",
+      "version": "0.1.0",
+    },
+    "packages/better-worktree-darwin-x64": {
+      "name": "better-worktree-darwin-x64",
+      "version": "0.1.0",
+    },
+    "packages/better-worktree-linux-arm64": {
+      "name": "better-worktree-linux-arm64",
+      "version": "0.1.0",
+    },
+    "packages/better-worktree-linux-arm64-musl": {
+      "name": "better-worktree-linux-arm64-musl",
+      "version": "0.1.0",
+    },
+    "packages/better-worktree-linux-x64": {
+      "name": "better-worktree-linux-x64",
+      "version": "0.1.0",
+    },
+    "packages/better-worktree-linux-x64-musl": {
+      "name": "better-worktree-linux-x64-musl",
+      "version": "0.1.0",
+    },
+    "packages/better-worktree-windows-arm64": {
+      "name": "better-worktree-windows-arm64",
+      "version": "0.1.0",
+    },
+    "packages/better-worktree-windows-x64": {
+      "name": "better-worktree-windows-x64",
+      "version": "0.1.0",
     },
   },
   "packages": {
@@ -354,9 +404,27 @@
 
     "base64-js": ["base64-js@1.5.1", "", {}, "sha512-AKpaYlHn8t4SVbOHCy+b5+KKgvR4vrsD8vbvrbiQJps7fKDTkjkDry6ji0rUJjC0kzbNePLwzxq8iypo41qeWA=="],
 
+    "better-worktree": ["better-worktree@workspace:packages/better-worktree"],
+
     "better-worktree-cli": ["better-worktree-cli@workspace:apps/cli"],
 
+    "better-worktree-darwin-arm64": ["better-worktree-darwin-arm64@workspace:packages/better-worktree-darwin-arm64"],
+
+    "better-worktree-darwin-x64": ["better-worktree-darwin-x64@workspace:packages/better-worktree-darwin-x64"],
+
     "better-worktree-docs": ["better-worktree-docs@workspace:apps/docs"],
+
+    "better-worktree-linux-arm64": ["better-worktree-linux-arm64@workspace:packages/better-worktree-linux-arm64"],
+
+    "better-worktree-linux-arm64-musl": ["better-worktree-linux-arm64-musl@workspace:packages/better-worktree-linux-arm64-musl"],
+
+    "better-worktree-linux-x64": ["better-worktree-linux-x64@workspace:packages/better-worktree-linux-x64"],
+
+    "better-worktree-linux-x64-musl": ["better-worktree-linux-x64-musl@workspace:packages/better-worktree-linux-x64-musl"],
+
+    "better-worktree-windows-arm64": ["better-worktree-windows-arm64@workspace:packages/better-worktree-windows-arm64"],
+
+    "better-worktree-windows-x64": ["better-worktree-windows-x64@workspace:packages/better-worktree-windows-x64"],
 
     "bmp-ts": ["bmp-ts@1.0.9", "", {}, "sha512-cTEHk2jLrPyi+12M3dhpEbnnPOsaZuq7C45ylbbQIiWgDFZq4UVYPEY5mlqjvsj/6gJv9qX5sa+ebDzLXT28Vw=="],
 

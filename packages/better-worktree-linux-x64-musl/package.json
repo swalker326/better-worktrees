@@ -1,0 +1,17 @@
+{
+  "name": "better-worktree-linux-x64-musl",
+  "version": "0.1.0",
+  "private": false,
+  "os": [
+    "linux"
+  ],
+  "cpu": [
+    "x64"
+  ],
+  "libc": [
+    "musl"
+  ],
+  "files": [
+    "bin"
+  ]
+}

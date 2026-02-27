@@ -1,5 +1,7 @@
 {
   "name": "better-worktree-cli",
+  "version": "0.1.0",
+  "description": "Git worktree manager with one-off commands and an OpenTUI mode",
   "module": "src/index.tsx",
   "bin": {
     "bwt": "src/index.tsx"

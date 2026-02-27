@@ -27,6 +27,8 @@ report.[0-9]*.[0-9]*.[0-9]*.[0-9]*.json
 .cache
 .astro
 *.tsbuildinfo
+packages/better-worktree-*/bin/bwt
+packages/better-worktree-*/bin/bwt.exe
 
 # IntelliJ based IDEs
 .idea

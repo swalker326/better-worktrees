@@ -1,0 +1,14 @@
+{
+  "name": "better-worktree-windows-x64",
+  "version": "0.1.0",
+  "private": false,
+  "os": [
+    "win32"
+  ],
+  "cpu": [
+    "x64"
+  ],
+  "files": [
+    "bin"
+  ]
+}

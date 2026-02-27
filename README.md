@@ -4,14 +4,31 @@
 
 ## Workspace layout
 
-- `apps/cli`: the Bun CLI + TUI app
+- `apps/cli`: source for the CLI + TUI app
 - `apps/docs`: Astro documentation site
+- `packages/better-worktree`: npm launcher package (`bwt`)
+- `packages/better-worktree-*`: platform-specific binary packages
 
 ## Install dependencies
 
 ```bash
 bun install
 ```
+
+## Install CLI from npm
+
+```bash
+npm install -g better-worktree
+```
+
+or run it without installing globally:
+
+```bash
+npx better-worktree --help
+```
+
+The npm install path does not require Bun on the user's machine. It installs a prebuilt
+platform binary and launches it via `bwt`.
 
 ## Run the CLI
 
@@ -26,6 +43,12 @@ No args opens the TUI. Commands run in one-off mode.
 ```bash
 bun run docs:dev
 ```
+
+## CI and release automation
+
+- PRs and pushes to `main` run `.github/workflows/ci.yml`.
+- Tagging `vX.Y.Z` runs `.github/workflows/release.yml`, validates the project, builds cross-platform binaries, publishes platform packages, then publishes `better-worktree`.
+- Releases require an `NPM_TOKEN` GitHub Actions secret with publish access.
 
 ## CLI commands
 
