@@ -5,6 +5,7 @@ export type AppAction =
   | { type: "setBusy"; value: boolean }
   | { type: "setStatus"; value: string }
   | { type: "setMode"; value: Mode }
+  | { type: "setActiveTab"; value: AppState["activeTab"] }
   | { type: "setActivePane"; value: AppState["activePane"] }
   | { type: "setSavedRepos"; value: SavedRepo[] }
   | { type: "setOpenedRepoPaths"; value: string[] }
@@ -37,8 +38,10 @@ export function appReducer(state: AppState, action: AppAction): AppState {
       return { ...state, status: action.value };
     case "setMode":
       return { ...state, mode: action.value };
+    case "setActiveTab":
+      return { ...state, activeTab: action.value, activePane: action.value };
     case "setActivePane":
-      return { ...state, activePane: action.value };
+      return { ...state, activePane: action.value, activeTab: action.value };
     case "setSavedRepos":
       return { ...state, savedRepos: action.value };
     case "setOpenedRepoPaths":

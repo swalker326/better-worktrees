@@ -1,4 +1,5 @@
 import { useKeyboard, useRenderer } from "@opentui/react";
+import { useEffect, useRef } from "react";
 import { CreateWorktreeModal } from "./components/CreateWorktreeModal";
 import { DeleteConfirmModal } from "./components/DeleteConfirmModal";
 import { OpenPathModal } from "./components/modals/OpenPathModal";
@@ -10,8 +11,14 @@ import { collapseHome } from "./pathDisplay";
 import { useAppController } from "./state/useAppController";
 import { THEME } from "./theme";
 
+const TAB_OPTIONS = [
+  { name: "Repos", description: "Saved and open repos", value: "repos" },
+  { name: "Trees", description: "Worktrees in current repo", value: "worktrees" },
+];
+
 export function App() {
   const renderer = useRenderer();
+  const tabSelectRef = useRef<any>(null);
   const {
     state,
     allRepos,
@@ -21,6 +28,7 @@ export function App() {
     handleKey,
     openInputValue,
     openCompletion,
+    setActiveTab,
     setRepoIndex,
     setWorktreeIndex,
     setOpenDraft,
@@ -47,6 +55,16 @@ export function App() {
         ? "rule"
         : null;
 
+  const handleActivateRepo = (index: number) => {
+    void activateRepoFromList(index);
+    setActiveTab("worktrees");
+    tabSelectRef.current?.setSelectedIndex(1);
+  };
+
+  useEffect(() => {
+    tabSelectRef.current?.setSelectedIndex(state.activeTab === "repos" ? 0 : 1);
+  }, [state.activeTab]);
+
   return (
     <box
       flexDirection="column"
@@ -64,17 +82,46 @@ export function App() {
       >
         <text>
           <strong>
-            <span fg={THEME.accent}>Better WorkTree</span>
+            <span fg={THEME.primary}>Better WorkTree</span>
           </strong>
-          <span fg={THEME.muted}> O open path P settings R refresh</span>
-          <span fg={THEME.muted}> | </span>
-          <span fg={THEME.text}>
+          <span fg={THEME.mutedSecondary}> O open path P settings R refresh</span>
+          <span fg={THEME.mutedSecondary}> | </span>
+          <span fg={THEME.secondary}>
             {state.activeRepoPath
               ? collapseHome(state.activeRepoPath)
               : "no repo selected"}
           </span>
         </text>
       </box>
+
+      {!showSettings && (
+        <box>
+          <tab-select
+            ref={tabSelectRef}
+            options={TAB_OPTIONS}
+            tabWidth={15}
+            backgroundColor={THEME.panel}
+            textColor={THEME.muted}
+            focusedTextColor={THEME.text}
+            selectedBackgroundColor={THEME.panelAlt}
+            selectedTextColor={THEME.primary}
+            selectedDescriptionColor={THEME.secondary}
+            showUnderline
+            onChange={(_, option) => {
+              if (!option) {
+                return;
+              }
+              setActiveTab(option.value === "worktrees" ? "worktrees" : "repos");
+            }}
+            onSelect={(_, option) => {
+              if (!option) {
+                return;
+              }
+              setActiveTab(option.value === "worktrees" ? "worktrees" : "repos");
+            }}
+          />
+        </box>
+      )}
 
       {showSettings ? (
         <RepoSettingsModal
@@ -89,30 +136,24 @@ export function App() {
           onChangeRuleDraft={setRuleDraft}
           onChangeRuleSuggestionIndex={setRuleSuggestionIndex}
         />
+      ) : state.activeTab === "repos" ? (
+        <RepoSelectPanel
+          repos={allRepos}
+          activeRepoPath={state.activeRepoPath}
+          selectedIndex={state.repoIndex}
+          focused={state.mode === "browse"}
+          onChangeIndex={setRepoIndex}
+          onSelectIndex={handleActivateRepo}
+        />
       ) : (
-        <box flexDirection="row" gap={1} flexGrow={1}>
-          <RepoSelectPanel
-            repos={allRepos}
-            activeRepoPath={state.activeRepoPath}
-            selectedIndex={state.repoIndex}
-            focused={state.activePane === "repos" && state.mode === "browse"}
-            onChangeIndex={setRepoIndex}
-            onSelectIndex={(index) => {
-              void activateRepoFromList(index);
-            }}
-          />
-
-          <WorktreeScrollPanel
-            repoPath={state.activeRepoPath}
-            worktrees={state.worktrees}
-            selectedIndex={state.worktreeIndex}
-            focused={
-              state.activePane === "worktrees" && state.mode === "browse"
-            }
-            onChangeIndex={setWorktreeIndex}
-            onSelectIndex={setWorktreeIndex}
-          />
-        </box>
+        <WorktreeScrollPanel
+          repoPath={state.activeRepoPath}
+          worktrees={state.worktrees}
+          selectedIndex={state.worktreeIndex}
+          focused={state.mode === "browse"}
+          onChangeIndex={setWorktreeIndex}
+          onSelectIndex={setWorktreeIndex}
+        />
       )}
 
       {state.mode === "openPath" ? (

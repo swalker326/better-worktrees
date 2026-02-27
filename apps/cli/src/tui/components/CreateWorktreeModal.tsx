@@ -13,7 +13,7 @@ export function CreateWorktreeModal(props: { draft: string; onChangeDraft: (valu
       title=" Create Worktree "
     >
       <text>
-        <span fg={THEME.muted}>Branch name</span>
+        <span fg={THEME.mutedSecondary}>Branch name</span>
       </text>
       <input
         value={props.draft}
@@ -23,11 +23,11 @@ export function CreateWorktreeModal(props: { draft: string; onChangeDraft: (valu
         backgroundColor={THEME.panelAlt}
         focusedBackgroundColor={THEME.panelAlt}
         textColor={THEME.text}
-        cursorColor={THEME.accent}
+        cursorColor={THEME.primary}
         placeholderColor={THEME.muted}
       />
       <text>
-        <span fg={THEME.muted}>Enter create  Esc cancel</span>
+        <span fg={THEME.mutedSecondary}>Enter create  Esc cancel</span>
       </text>
     </box>
   );

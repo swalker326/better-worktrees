@@ -1,5 +1,5 @@
 import { THEME } from "../theme";
-import { collapseHome } from "../pathDisplay";
+import { collapseHome, truncateMiddle } from "../pathDisplay";
 
 type RepoItem = { path: string; name: string; saved: boolean };
 
@@ -13,7 +13,7 @@ export function RepoSelectPanel(props: {
 }) {
   const options = props.repos.map((repo) => ({
     name: `${repo.saved ? "[saved]" : "[open]"} ${repo.name}`,
-    description: collapseHome(repo.path),
+    description: truncateMiddle(collapseHome(repo.path), 48),
     value: repo.path,
   }));
 
@@ -27,7 +27,7 @@ export function RepoSelectPanel(props: {
       title={` Repositories ${props.repos.length} `}
       padding={1}
       gap={1}
-      width="34%"
+      flexGrow={1}
     >
       {options.length > 0 ? (
         <select
@@ -37,8 +37,8 @@ export function RepoSelectPanel(props: {
           height={14}
           showDescription
           showScrollIndicator
-          selectedBackgroundColor={THEME.borderFocus}
-          selectedTextColor={THEME.panelAlt}
+          selectedBackgroundColor={THEME.primaryBg}
+          selectedTextColor={THEME.text}
           onChange={(index) => props.onChangeIndex(index)}
           onSelect={(index) => props.onSelectIndex(index)}
         />
@@ -50,7 +50,7 @@ export function RepoSelectPanel(props: {
         </box>
       )}
       <text>
-        <span fg={THEME.muted}>
+        <span fg={THEME.mutedSecondary}>
           Tab pane  Up/Down move  Enter open
         </span>
       </text>

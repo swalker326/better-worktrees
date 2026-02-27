@@ -15,11 +15,13 @@ export function DeleteConfirmModal(props: { target: string }) {
     >
       <text>
         <span fg={THEME.text}>Delete </span>
-        <span fg={THEME.danger}>{collapseHome(props.target)}</span>
+        <span fg={THEME.danger}>
+          <strong>{collapseHome(props.target)}</strong>
+        </span>
         <span fg={THEME.text}> ?</span>
       </text>
       <text>
-        <span fg={THEME.muted}>Enter/Y delete  Esc/N cancel</span>
+        <span fg={THEME.mutedSecondary}>Enter/Y delete  Esc/N cancel</span>
       </text>
     </box>
   );

@@ -1,25 +1,20 @@
-const COLORS = {
-  panel: "#2f3e55",
-  border: "#4f6a88",
-  mutedText: "#adc5df",
-  accent: "#67b3ff",
-};
+import { THEME } from "../theme";
 
 export function StatusBar(props: { message: string; modeLabel: string }) {
   return (
     <box
       border
-      borderColor={COLORS.border}
-      backgroundColor={COLORS.panel}
+      borderColor={THEME.border}
+      backgroundColor={THEME.panelAlt}
       padding={1}
       title=" Status "
       gap={1}
     >
       <text>
-        <span fg={COLORS.accent}>{props.modeLabel}</span>
+        <span fg={THEME.primary}>{props.modeLabel}</span>
       </text>
       <text>
-        <span fg={COLORS.mutedText}>{props.message}</span>
+        <span fg={THEME.mutedSecondary}>{props.message}</span>
       </text>
     </box>
   );

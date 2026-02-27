@@ -30,12 +30,12 @@ export function RepoSettingsModal(props: {
       title=" Repo Settings "
     >
       <text>
-        <span fg={THEME.muted}>{collapseHome(props.repoPath)}</span>
+        <span fg={THEME.secondary}>{collapseHome(props.repoPath)}</span>
       </text>
 
       <box flexDirection="column" gap={1}>
         <text>
-          <span fg={THEME.muted}>Add files to copy (Enter/A):</span>
+          <span fg={THEME.mutedSecondary}>Add files to copy (Enter/A):</span>
         </text>
         <input
           value={props.ruleDraft}
@@ -45,7 +45,7 @@ export function RepoSettingsModal(props: {
           backgroundColor={THEME.panelAlt}
           focusedBackgroundColor={THEME.panelAlt}
           textColor={THEME.text}
-          cursorColor={THEME.accent}
+          cursorColor={THEME.primary}
           placeholderColor={THEME.muted}
         />
         <select
@@ -65,22 +65,24 @@ export function RepoSettingsModal(props: {
           height={5}
           showDescription
           showScrollIndicator
+          selectedBackgroundColor={THEME.primaryBg}
+          selectedTextColor={THEME.text}
         />
         <text>
-          <span fg={THEME.muted}>Tab completion: </span>
-          <span fg={props.ruleCompletion ? THEME.accent2 : THEME.muted}>
+          <span fg={THEME.mutedSecondary}>Tab completion: </span>
+          <span fg={props.ruleCompletion ? THEME.secondary : THEME.muted}>
             {props.ruleCompletion ?? "(no match yet)"}
           </span>
         </text>
         {props.inputMode === "rule" ? (
           <text>
-            <span fg={THEME.accent}>Pick a file and press Enter to add, or Esc to cancel</span>
+            <span fg={THEME.primary}>Pick a file and press Enter to add, or Esc to cancel</span>
           </text>
         ) : null}
       </box>
 
       <text>
-        <span fg={THEME.muted}>Copy rules ({rules.length})</span>
+        <span fg={THEME.mutedSecondary}>Copy rules ({rules.length})</span>
       </text>
       <scrollbox
         height={10}
@@ -94,18 +96,18 @@ export function RepoSettingsModal(props: {
         ) : (
           rules.map((rule, index) => (
             <text key={`${rule.from}-${rule.to ?? rule.from}-${index}`}>
-              <span fg={index === props.selectedRule ? THEME.accent : THEME.text}>
+              <span fg={index === props.selectedRule ? THEME.primary : THEME.text}>
                 {index === props.selectedRule ? ">" : " "} {rule.from}
               </span>
               <span fg={THEME.muted}> -&gt; </span>
-              <span fg={THEME.accent2}>{rule.to ?? rule.from}</span>
+              <span fg={THEME.secondary}>{rule.to ?? rule.from}</span>
             </text>
           ))
         )}
       </scrollbox>
 
       <text>
-        <span fg={THEME.muted}>Up/Down select  Enter/A add file  Delete remove  Esc back</span>
+        <span fg={THEME.mutedSecondary}>Up/Down select  Enter/A add file  Delete remove  Esc back</span>
       </text>
     </box>
   );

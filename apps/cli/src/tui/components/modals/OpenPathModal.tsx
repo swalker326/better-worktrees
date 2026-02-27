@@ -27,7 +27,7 @@ export function OpenPathModal(props: {
         backgroundColor={THEME.panelAlt}
         focusedBackgroundColor={THEME.panelAlt}
         textColor={THEME.text}
-        cursorColor={THEME.accent}
+        cursorColor={THEME.primary}
         placeholderColor={THEME.muted}
       />
       <select
@@ -43,15 +43,17 @@ export function OpenPathModal(props: {
         height={5}
         showDescription
         showScrollIndicator
+        selectedBackgroundColor={THEME.primaryBg}
+        selectedTextColor={THEME.text}
       />
       <text>
-        <span fg={THEME.muted}>Tab completion: </span>
-        <span fg={props.completion ? THEME.accent2 : THEME.muted}>
+        <span fg={THEME.mutedSecondary}>Tab completion: </span>
+        <span fg={props.completion ? THEME.secondary : THEME.muted}>
           {props.completion ?? "(no match yet)"}
         </span>
       </text>
       <text>
-        <span fg={THEME.muted}>Enter open  Tab autocomplete  Up/Down pick  Esc close</span>
+        <span fg={THEME.mutedSecondary}>Enter open  Tab autocomplete  Up/Down pick  Esc close</span>
       </text>
     </box>
   );

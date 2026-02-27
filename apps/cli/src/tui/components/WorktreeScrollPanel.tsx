@@ -1,5 +1,5 @@
 import type { WorktreeInfo } from "../../core/types";
-import { collapseHome } from "../pathDisplay";
+import { collapseHome, truncateMiddle } from "../pathDisplay";
 import { THEME } from "../theme";
 
 export function WorktreeScrollPanel(props: {
@@ -12,7 +12,7 @@ export function WorktreeScrollPanel(props: {
 }) {
   const options = props.worktrees.map((worktree) => ({
     name: `${worktree.isCurrent ? "*" : " "} ${worktree.branch ?? "(detached)"}`,
-    description: collapseHome(worktree.path),
+    description: truncateMiddle(collapseHome(worktree.path), 40),
     value: worktree.path,
   }));
 
@@ -31,7 +31,7 @@ export function WorktreeScrollPanel(props: {
       flexGrow={1}
     >
       <text>
-        <span fg={THEME.muted}>{props.repoPath ? collapseHome(props.repoPath) : "No repo selected"}</span>
+        <span fg={THEME.secondary}>{props.repoPath ? collapseHome(props.repoPath) : "No repo selected"}</span>
       </text>
       {options.length > 0 ? (
         <select
@@ -41,8 +41,8 @@ export function WorktreeScrollPanel(props: {
           height={10}
           showDescription
           showScrollIndicator
-          selectedBackgroundColor={THEME.borderFocus}
-          selectedTextColor={THEME.panelAlt}
+          selectedBackgroundColor={THEME.primaryBg}
+          selectedTextColor={THEME.text}
           onChange={(index) => props.onChangeIndex(index)}
           onSelect={(index) => props.onSelectIndex(index)}
         />
@@ -71,25 +71,25 @@ export function WorktreeScrollPanel(props: {
       >
         <text>
           <strong>
-            <span fg={THEME.accent2}>Selected Worktree Details</span>
+            <span fg={THEME.secondary}>Selected Worktree Details</span>
           </strong>
         </text>
         {selected ? (
           <box flexDirection="column" gap={1}>
             <text>
-              <span fg={THEME.muted}>branch </span>
+              <span fg={THEME.mutedSecondary}>branch </span>
               <span fg={THEME.text}>{selected.branch ?? "(detached)"}</span>
             </text>
             <text>
-              <span fg={THEME.muted}>path </span>
+              <span fg={THEME.mutedSecondary}>path </span>
               <span fg={THEME.text}>{collapseHome(selected.path)}</span>
             </text>
             <text>
-              <span fg={THEME.muted}>head </span>
+              <span fg={THEME.mutedSecondary}>head </span>
               <span fg={THEME.text}>{selected.head}</span>
             </text>
             <text>
-              <span fg={selected.isCurrent ? THEME.accent2 : THEME.muted}>
+              <span fg={selected.isCurrent ? THEME.success : THEME.muted}>
                 {selected.isCurrent ? "current context" : "not current context"}
               </span>
             </text>
@@ -101,7 +101,7 @@ export function WorktreeScrollPanel(props: {
         )}
       </scrollbox>
       <text>
-        <span fg={THEME.muted}>C create  X delete  R refresh  P settings</span>
+        <span fg={THEME.mutedSecondary}>C create  X delete  R refresh  P settings</span>
       </text>
     </box>
   );

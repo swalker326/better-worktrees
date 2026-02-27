@@ -212,6 +212,8 @@ export function useAppController() {
 		modeLabel,
 		helpText,
 		handleKey,
+		setActiveTab: (tab: "repos" | "worktrees") =>
+			dispatch({ type: "setActiveTab", value: tab }),
 		setRepoIndex: (index: number) =>
 			dispatch({ type: "setRepoIndex", value: clamp(index, allRepos.length) }),
 		setWorktreeIndex: (index: number) =>

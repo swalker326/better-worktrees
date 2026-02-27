@@ -1,6 +1,7 @@
 import type { RepoSettings, WorktreeInfo } from "../../core/types";
 
 export type Pane = "repos" | "worktrees";
+export type Tab = "repos" | "worktrees";
 
 export type Mode =
   | "browse"
@@ -16,6 +17,7 @@ export type RepoItem = { path: string; name: string; saved: boolean };
 export type AppState = {
   busy: boolean;
   status: string;
+  activeTab: Tab;
   activePane: Pane;
   mode: Mode;
   savedRepos: SavedRepo[];
@@ -70,6 +72,7 @@ export const DEFAULT_TEMPLATE = "BWT_<project_name>_wt_<branch_name>";
 export const initialAppState: AppState = {
   busy: false,
   status: "Open a repo path or select a saved repo to load all worktrees",
+  activeTab: "repos",
   activePane: "repos",
   mode: "browse",
   savedRepos: [],
