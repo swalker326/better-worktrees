@@ -1,0 +1,40 @@
+---
+import DocsLayout from "../layouts/DocsLayout.astro";
+---
+
+<DocsLayout
+  title="better-worktree docs"
+  description="A git worktree manager with one-off commands and a keyboard-first TUI."
+>
+  <section class="hero">
+    <p class="eyebrow">Git worktree workflow</p>
+    <h1>Ship branches faster with less path juggling.</h1>
+    <p class="muted">
+      <code>bwt</code> keeps your repos and worktrees in one place, so creating, switching,
+      and cleaning up branches is one command or keypress away.
+    </p>
+  </section>
+
+  <section class="grid">
+    <article class="card">
+      <h3>One-off commands</h3>
+      <p class="muted">
+        List, create, and delete worktrees from scripts or your terminal without entering the
+        interactive UI.
+      </p>
+    </article>
+    <article class="card">
+      <h3>Keyboard-first TUI</h3>
+      <p class="muted">
+        Open without arguments to browse repos, inspect statuses, and manage worktrees quickly.
+      </p>
+    </article>
+    <article class="card">
+      <h3>Repo-aware defaults</h3>
+      <p class="muted">
+        Save repository paths and copy rules in config so new worktrees start with the files you
+        need.
+      </p>
+    </article>
+  </section>
+</DocsLayout>

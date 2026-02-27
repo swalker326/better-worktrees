@@ -1,0 +1,14 @@
+{
+  "name": "better-worktree-docs",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "typecheck": "astro check"
+  },
+  "dependencies": {
+    "astro": "^5.14.1"
+  }
+}

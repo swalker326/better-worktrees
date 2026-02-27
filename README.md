@@ -1,22 +1,33 @@
-# better-worktree
+# better-worktrees monorepo
 
-`bwt` is a git worktree manager with both one-off commands and an OpenTUI mode.
+`bwt` is a git worktree manager with one-off commands and an OpenTUI mode.
 
-## Install
+## Workspace layout
+
+- `apps/cli`: the Bun CLI + TUI app
+- `apps/docs`: Astro documentation site
+
+## Install dependencies
 
 ```bash
 bun install
 ```
 
-## Run
+## Run the CLI
 
 ```bash
-bun run src/index.tsx
+bun run start
 ```
 
 No args opens the TUI. Commands run in one-off mode.
 
-## Commands
+## Run the docs site
+
+```bash
+bun run docs:dev
+```
+
+## CLI commands
 
 ```bash
 bwt list [-R <repo>] [--json]
@@ -40,37 +51,3 @@ bwt repo set-copy <path> --rule <from[:to]> [--rule <from[:to]> ...]
 - `s`: switch back to repo picker
 - `?`: help
 - `q`: quit
-
-## Config
-
-Global config lives at:
-
-`~/.config/bwt/config.json`
-
-Example:
-
-```json
-{
-  "version": 1,
-  "lastRepo": "/Users/you/Developer/better-worktree",
-  "repoOrder": ["/Users/you/Developer/better-worktree"],
-  "repos": {
-    "/Users/you/Developer/better-worktree": {
-      "name": "better-worktree",
-      "defaultBase": "main",
-      "worktreeRoot": "/Users/you/Developer/worktrees",
-      "nameTemplate": "BWT_<project_name>_wt_<branch_name>",
-      "copyAfterCreate": [
-        {
-          "from": ".env.local",
-          "to": ".env.local",
-          "overwrite": false,
-          "required": false
-        }
-      ]
-    }
-  }
-}
-```
-
-`nameTemplate` controls generated worktree directory names when `--path` is not provided.

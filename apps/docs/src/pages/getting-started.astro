@@ -1,0 +1,23 @@
+---
+import DocsLayout from "../layouts/DocsLayout.astro";
+---
+
+<DocsLayout title="Getting Started | better-worktree" description="Install and run better-worktree.">
+  <h1>Getting started</h1>
+  <p class="muted">Install dependencies, then run the CLI from the monorepo root.</p>
+
+  <h2>Install</h2>
+  <pre><code>bun install</code></pre>
+
+  <h2>Run in TUI mode</h2>
+  <pre><code>bun run start</code></pre>
+
+  <h2>Run a one-off command</h2>
+  <pre><code>bun run --filter better-worktree-cli start -- list</code></pre>
+
+  <h2>Global config location</h2>
+  <p>
+    Settings are stored in <code>~/.config/bwt/config.json</code>. This includes repo aliases,
+    default branch, worktree root, naming templates, and copy rules.
+  </p>
+</DocsLayout>

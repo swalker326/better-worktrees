@@ -1,25 +1,21 @@
 {
-  "name": "better-worktree",
-  "module": "src/index.tsx",
-  "bin": {
-    "bwt": "src/index.tsx"
-  },
-  "type": "module",
+  "name": "better-worktrees",
   "private": true,
+  "type": "module",
+  "workspaces": [
+    "apps/*"
+  ],
   "scripts": {
-    "dev": "bun run --watch src/index.tsx",
-    "start": "bun run src/index.tsx",
-    "test": "bun test"
+    "dev": "bun run --filter better-worktree-cli dev",
+    "start": "bun run --filter better-worktree-cli start",
+    "test": "bun run --filter better-worktree-cli test",
+    "typecheck": "bun run --filter better-worktree-cli typecheck && bun run --filter better-worktree-docs typecheck",
+    "docs:dev": "bun run --filter better-worktree-docs dev",
+    "docs:build": "bun run --filter better-worktree-docs build",
+    "docs:preview": "bun run --filter better-worktree-docs preview"
   },
   "devDependencies": {
-    "@types/bun": "latest"
-  },
-  "peerDependencies": {
+    "@types/bun": "latest",
     "typescript": "^5"
-  },
-  "dependencies": {
-    "@opentui/core": "^0.1.83",
-    "@opentui/react": "^0.1.83",
-    "react": "^19.2.4"
   }
 }
