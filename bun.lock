@@ -29,52 +29,52 @@
     },
     "packages/better-worktree": {
       "name": "better-worktree",
-      "version": "0.1.1",
+      "version": "0.1.5",
       "bin": {
         "bwt": "bin/bwt.js",
       },
       "optionalDependencies": {
-        "better-worktree-darwin-arm64": "0.1.0",
-        "better-worktree-darwin-x64": "0.1.0",
-        "better-worktree-linux-arm64": "0.1.0",
-        "better-worktree-linux-arm64-musl": "0.1.0",
-        "better-worktree-linux-x64": "0.1.0",
-        "better-worktree-linux-x64-musl": "0.1.0",
-        "better-worktree-windows-arm64": "0.1.0",
-        "better-worktree-windows-x64": "0.1.0",
+        "better-worktree-darwin-arm64": "0.1.5",
+        "better-worktree-darwin-x64": "0.1.5",
+        "better-worktree-linux-arm64": "0.1.5",
+        "better-worktree-linux-arm64-musl": "0.1.5",
+        "better-worktree-linux-x64": "0.1.5",
+        "better-worktree-linux-x64-musl": "0.1.5",
+        "better-worktree-windows-arm64": "0.1.5",
+        "better-worktree-windows-x64": "0.1.5",
       },
     },
     "packages/better-worktree-darwin-arm64": {
       "name": "better-worktree-darwin-arm64",
-      "version": "0.1.1",
+      "version": "0.1.5",
     },
     "packages/better-worktree-darwin-x64": {
       "name": "better-worktree-darwin-x64",
-      "version": "0.1.1",
+      "version": "0.1.5",
     },
     "packages/better-worktree-linux-arm64": {
       "name": "better-worktree-linux-arm64",
-      "version": "0.1.1",
+      "version": "0.1.5",
     },
     "packages/better-worktree-linux-arm64-musl": {
       "name": "better-worktree-linux-arm64-musl",
-      "version": "0.1.1",
+      "version": "0.1.5",
     },
     "packages/better-worktree-linux-x64": {
       "name": "better-worktree-linux-x64",
-      "version": "0.1.1",
+      "version": "0.1.5",
     },
     "packages/better-worktree-linux-x64-musl": {
       "name": "better-worktree-linux-x64-musl",
-      "version": "0.1.1",
+      "version": "0.1.5",
     },
     "packages/better-worktree-windows-arm64": {
       "name": "better-worktree-windows-arm64",
-      "version": "0.1.1",
+      "version": "0.1.5",
     },
     "packages/better-worktree-windows-x64": {
       "name": "better-worktree-windows-x64",
-      "version": "0.1.1",
+      "version": "0.1.5",
     },
   },
   "packages": {
@@ -987,22 +987,6 @@
     "anymatch/picomatch": ["picomatch@2.3.1", "", {}, "sha512-JU3teHTNjmE2VCGFzuY8EXzCDVwEqB2a8fsIvwaStHhAWJEeVd1o1QD80CU6+ZdEXXSLbSsuLwJjkCBWqRQUVA=="],
 
     "astro/diff": ["diff@8.0.3", "", {}, "sha512-qejHi7bcSD4hQAZE0tNAawRK1ZtafHDmMTMkrrIGgSLl7hTnQHmKCeB45xAcbfTqK2zowkM3j3bHt/4b/ARbYQ=="],
-
-    "better-worktree/better-worktree-darwin-arm64": ["better-worktree-darwin-arm64@0.1.0", "", { "os": "darwin", "cpu": "arm64" }, "sha512-R9IsPqnSHSE3lIzeT8kR8x/0V7bHIZJTXX1fLCJcBdcyDr7MlXF0V6nA7Kq5d+zQ9f2GBtMGU3qphhBrtKbpig=="],
-
-    "better-worktree/better-worktree-darwin-x64": ["better-worktree-darwin-x64@0.1.0", "", { "os": "darwin", "cpu": "x64" }, "sha512-lvL3Q736iozj1IC+NWpZjK8nLzgTLLsUjCQtUx3HEA0zlDwecii7A1PAnViuH21mvN5BrbyfnO+nAYFmBjmYfQ=="],
-
-    "better-worktree/better-worktree-linux-arm64": ["better-worktree-linux-arm64@0.1.0", "", { "os": "linux", "cpu": "arm64" }, "sha512-7xKnS1qYZwSJakkGWGy5T/pTRxxzd/TJfI7b3wunnOKsfU86CdhtmFx7pq2qXM0JiG4gOurC0/PmezgkRJMjPA=="],
-
-    "better-worktree/better-worktree-linux-arm64-musl": ["better-worktree-linux-arm64-musl@0.1.0", "", { "os": "linux", "cpu": "arm64" }, "sha512-n3pZOm5oU6B71HJVy6M9SpI21bNGWHz5n1imZdtpgM+0V/tirGdbzrPtxRQD/dglri+fU1j6LMK3jXhB6WB6Dw=="],
-
-    "better-worktree/better-worktree-linux-x64": ["better-worktree-linux-x64@0.1.0", "", { "os": "linux", "cpu": "x64" }, "sha512-DmnTyytWfpgTBmKWoE7vLQ+7TB0i2b+a41H01LF4c8jtBONovVmCPBYkdlAxenvDNtrGfrhKtFB6dIIWLIipQA=="],
-
-    "better-worktree/better-worktree-linux-x64-musl": ["better-worktree-linux-x64-musl@0.1.0", "", { "os": "linux", "cpu": "x64" }, "sha512-p/aLvvv8hP4ILRGSiLAa7WA/DPK95KNJM+ZDkFIdVykMXcpVxB1FWjFSy5GcHE/bD6KfGaPzut91Bhss3yofRQ=="],
-
-    "better-worktree/better-worktree-windows-arm64": ["better-worktree-windows-arm64@0.1.0", "", { "os": "win32", "cpu": "arm64" }, "sha512-1P3y69J+Mf9MUKTsbeYRxyiRxrsIb4DmgGQBwevPfrn9mt4VN1YcMAz0GaGizQZbUAQsMtm0ReGEcGHEc/BLCg=="],
-
-    "better-worktree/better-worktree-windows-x64": ["better-worktree-windows-x64@0.1.0", "", { "os": "win32", "cpu": "x64" }, "sha512-y6nUH3FfkVXLQ0zFPW8sTQjbujfw2EJzB8tOlLt4Bi/Hi974c5VOutqt1iwtyMcNSCzK7j62sWfUiAZsK5fM1g=="],
 
     "csso/css-tree": ["css-tree@2.2.1", "", { "dependencies": { "mdn-data": "2.0.28", "source-map-js": "^1.0.1" } }, "sha512-OA0mILzGc1kCOCSJerOeqDxDQ4HOh+G8NbOJFOTgOCzpw7fCBubk0fEyxp8AgOL/jvLgYA/uV0cMbe43ElF1JA=="],
 
