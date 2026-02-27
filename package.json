@@ -1,10 +1,15 @@
 {
   "name": "better-worktree",
   "module": "src/index.tsx",
+  "bin": {
+    "bwt": "src/index.tsx"
+  },
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "bun run --watch src/index.tsx"
+    "dev": "bun run --watch src/index.tsx",
+    "start": "bun run src/index.tsx",
+    "test": "bun test"
   },
   "devDependencies": {
     "@types/bun": "latest"

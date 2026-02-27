@@ -1,16 +1,24 @@
-import { createCliRenderer, TextAttributes } from "@opentui/core";
+#!/usr/bin/env bun
+
+import { createCliRenderer } from "@opentui/core";
 import { createRoot } from "@opentui/react";
 
-function App() {
-  return (
-    <box alignItems="center" justifyContent="center" flexGrow={1}>
-      <box justifyContent="center" alignItems="flex-end">
-        <ascii-font font="tiny" text="OpenTUI" />
-        <text attributes={TextAttributes.DIM}>What will you build?</text>
-      </box>
-    </box>
-  );
+import { runCli } from "./cli/parse";
+import { formatError } from "./core/errors";
+import { App } from "./tui/App";
+
+async function main() {
+  const argv = process.argv.slice(2);
+  if (argv.length > 0) {
+    await runCli(argv);
+    return;
+  }
+
+  const renderer = await createCliRenderer();
+  createRoot(renderer).render(<App />);
 }
 
-const renderer = await createCliRenderer();
-createRoot(renderer).render(<App />);
+main().catch((error: unknown) => {
+  console.error(`Error: ${formatError(error)}`);
+  process.exit(1);
+});
