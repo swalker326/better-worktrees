@@ -60,6 +60,7 @@ In Repo Settings, add copy rules (`from[:to]`, for example `.env.local:.env.loca
 
 ## Documentation
 
+- Live docs: https://better-worktrees.dev
 - Docs site: `apps/docs`
 - User docs entry point: `apps/docs/src/pages/index.astro`
 

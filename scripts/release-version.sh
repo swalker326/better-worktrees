@@ -54,6 +54,14 @@ PACKAGE_FILES=(
   "packages/better-worktree-windows-x64/package.json"
 )
 
+README_SRC="README.md"
+README_DEST="packages/better-worktree/README.md"
+
+if [ ! -f "$README_SRC" ]; then
+  echo "Missing ${README_SRC}"
+  exit 1
+fi
+
 for file in "${PACKAGE_FILES[@]}"; do
   NEW_VERSION="$VERSION" PACKAGE_FILE="$file" node --input-type=module -e '
     import fs from "node:fs";
@@ -74,7 +82,9 @@ for file in "${PACKAGE_FILES[@]}"; do
   '
 done
 
-git add "${PACKAGE_FILES[@]}"
+cp "$README_SRC" "$README_DEST"
+
+git add "${PACKAGE_FILES[@]}" "$README_DEST"
 git commit -m "chore: release ${TAG}"
 git tag "${TAG}"
 git push origin main
