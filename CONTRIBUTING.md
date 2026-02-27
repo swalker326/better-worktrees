@@ -24,6 +24,19 @@ No arguments opens the TUI. Commands run in one-off CLI mode.
 bun run docs:dev
 ```
 
+### Deploy docs to Cloudflare Pages
+
+```bash
+bunx wrangler login
+bun run docs:cf:deploy
+```
+
+To preview the production build locally on the Cloudflare Pages runtime:
+
+```bash
+bun run docs:cf:dev
+```
+
 ## Required verification before hand-off
 
 ```bash
