@@ -48,7 +48,7 @@ bun run docs:dev
 
 - PRs and pushes to `main` run `.github/workflows/ci.yml`.
 - Tagging `vX.Y.Z` runs `.github/workflows/release.yml`, validates the project, builds cross-platform binaries, publishes platform packages, then publishes `better-worktree`.
-- Releases require an `NPM_TOKEN` GitHub Actions secret with publish access.
+- Releases are configured for npm Trusted Publishing (GitHub OIDC), so no `NPM_TOKEN` secret is required.
 
 ## CLI commands
 
