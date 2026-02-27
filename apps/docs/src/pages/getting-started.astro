@@ -23,6 +23,20 @@ import DocsLayout from "../layouts/DocsLayout.astro";
     This launches the interactive workflow for browsing repos, creating worktrees, and cleanups.
   </p>
 
+  <h2>Save repos in the TUI</h2>
+  <p class="muted">
+    In the TUI, open a repository path, then press <code>M</code> to save it. Saved repos stay in
+    your config so you can reopen and manage them quickly later. Press <code>U</code> on a saved
+    repo to remove it.
+  </p>
+
+  <h2>Use Settings copy rules for new worktrees</h2>
+  <p class="muted">
+    Press <code>P</code> to open repo settings, then add copy rules (for example
+    <code>.env.local:.env.local</code>). Every time you create a worktree for that repo, these
+    files are copied automatically into the new worktree.
+  </p>
+
   <h2>Run one-off CLI commands</h2>
   <pre><code>bwt list
 bwt create feature-a -R app</code></pre>

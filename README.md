@@ -1,40 +1,45 @@
-# better-worktrees monorepo
+# better-worktree (`bwt`)
 
-`bwt` is a git worktree manager with one-off commands and an OpenTUI mode.
+`bwt` is a Git worktree manager with both one-off CLI commands and a keyboard-first TUI.
 
-## Workspace layout
+![better-worktree TUI screenshot](apps/docs/better-worktree-screenshot.png)
 
-- `apps/cli`: source for the CLI + TUI app
-- `apps/docs`: Astro documentation site
-- `packages/better-worktree`: npm launcher package (`bwt`)
-- `packages/better-worktree-*`: platform-specific binary packages
+## Quickstart
 
-## Contributing and local builds
-
-For local development setup, build/test commands, and contribution workflow, see
-`CONTRIBUTING.md`.
-
-## Install CLI from npm
+Install globally:
 
 ```bash
 npm install -g better-worktree
 ```
 
-or run it without installing globally:
+Or run without installing:
 
 ```bash
 npx better-worktree --help
 ```
 
-The npm install path does not require Bun on the user's machine. It installs a prebuilt
-platform binary and launches it via `bwt`.
+Open the interactive TUI:
 
-## CLI commands
+```bash
+bwt
+```
+
+Common first-run flow:
+
+```bash
+bwt repo add /path/to/repo --name app
+bwt repo list
+bwt create feat-login -R app --branch feat/login
+bwt list -R app
+```
+
+## Core commands
 
 ```bash
 bwt list [-R <repo>] [--json]
 bwt create <name> [-R <repo>] [--branch <branch>] [--base <base>] [--path <dir>] [--json]
 bwt delete <name|path> [-R <repo>] [--yes] [--force]
+
 bwt repo list
 bwt repo add <path> [--name <alias>]
 bwt repo remove <path>
@@ -42,14 +47,22 @@ bwt repo use <path>
 bwt repo set-copy <path> --rule <from[:to]> [--rule <from[:to]> ...]
 ```
 
-## TUI keys
+## TUI highlights
 
-- `j` / `k` or arrows: move selection
-- `Enter`: open repo/select
-- `a`: add repo or create worktree
-- `d`: delete selected worktree
-- `x`: remove saved repo
-- `r`: refresh worktrees
-- `s`: switch back to repo picker
-- `?`: help
-- `q`: quit
+- Save active repo: `M`
+- Remove saved repo: `U`
+- Open repo settings: `P`
+- Create worktree: `C`
+- Delete selected worktree: `X`
+- Refresh: `R`
+
+In Repo Settings, add copy rules (`from[:to]`, for example `.env.local:.env.local`) and those files will be copied automatically when creating new worktrees for that repo.
+
+## Documentation
+
+- Docs site: `apps/docs`
+- User docs entry point: `apps/docs/src/pages/index.astro`
+
+## Contributing
+
+If you want to work on `bwt` itself (local setup, tests, release flow), see `CONTRIBUTING.md`.

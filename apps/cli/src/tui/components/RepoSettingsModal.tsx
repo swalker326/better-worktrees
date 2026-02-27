@@ -28,6 +28,7 @@ export function RepoSettingsModal(props: {
       padding={1}
       gap={1}
       title=" Repo Settings "
+      flexGrow={1}
     >
       <text>
         <span fg={THEME.secondary}>{collapseHome(props.repoPath)}</span>
@@ -85,7 +86,7 @@ export function RepoSettingsModal(props: {
         <span fg={THEME.mutedSecondary}>Copy rules ({rules.length})</span>
       </text>
       <scrollbox
-        height={10}
+        flexGrow={1}
         verticalScrollbarOptions={{ showArrows: true }}
         viewportOptions={{ backgroundColor: THEME.panelAlt }}
       >

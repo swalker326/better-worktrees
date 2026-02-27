@@ -32,6 +32,21 @@ bwt repo set-copy &lt;path&gt; --rule &lt;from[:to]&gt; [--rule &lt;from[:to]&gt
     <li>Use copy rules to bring required files into new worktrees automatically.</li>
   </ul>
 
+  <h2>How saved repos and copy rules work in the TUI</h2>
+  <ul class="muted">
+    <li>Open a repo path, then press <code>M</code> to save it for future sessions.</li>
+    <li>Press <code>U</code> on a saved repo to remove it from saved repos.</li>
+    <li>Press <code>P</code> to open Repo Settings for the active repo.</li>
+    <li>
+      Add copy rules in Settings using <code>from[:to]</code> format (example:
+      <code>.env.local:.env.local</code>).
+    </li>
+    <li>
+      When you create a new worktree for that repo, configured rules are applied and files are
+      copied automatically.
+    </li>
+  </ul>
+
   <h2>TUI keys</h2>
   <pre><code>j / k or arrows  move selection
 Enter            open repo/select

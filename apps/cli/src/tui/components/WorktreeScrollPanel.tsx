@@ -38,7 +38,7 @@ export function WorktreeScrollPanel(props: {
           options={options}
           focused={props.focused}
           selectedIndex={props.selectedIndex}
-          height={10}
+          flexGrow={1}
           showDescription
           showScrollIndicator
           selectedBackgroundColor={THEME.primaryBg}
@@ -54,20 +54,13 @@ export function WorktreeScrollPanel(props: {
         </box>
       )}
 
-      <scrollbox
-        focused={false}
-        height={8}
+      <box
+        flexDirection="column"
+        gap={1}
         border
         borderColor={THEME.border}
-        verticalScrollbarOptions={{
-          trackOptions: {
-            foregroundColor: THEME.border,
-            backgroundColor: THEME.panelAlt,
-          },
-          showArrows: true,
-        }}
-        viewportOptions={{ backgroundColor: THEME.panelAlt }}
-        contentOptions={{ padding: 1 }}
+        backgroundColor={THEME.panelAlt}
+        padding={1}
       >
         <text>
           <strong>
@@ -82,11 +75,11 @@ export function WorktreeScrollPanel(props: {
             </text>
             <text>
               <span fg={THEME.mutedSecondary}>path </span>
-              <span fg={THEME.text}>{collapseHome(selected.path)}</span>
+              <span fg={THEME.text}>{truncateMiddle(collapseHome(selected.path), 70)}</span>
             </text>
             <text>
               <span fg={THEME.mutedSecondary}>head </span>
-              <span fg={THEME.text}>{selected.head}</span>
+              <span fg={THEME.text}>{truncateMiddle(selected.head, 24)}</span>
             </text>
             <text>
               <span fg={selected.isCurrent ? THEME.success : THEME.muted}>
@@ -99,7 +92,7 @@ export function WorktreeScrollPanel(props: {
             <span fg={THEME.muted}>Select a worktree to preview details.</span>
           </text>
         )}
-      </scrollbox>
+      </box>
       <text>
         <span fg={THEME.mutedSecondary}>C create  X delete  R refresh  P settings</span>
       </text>
