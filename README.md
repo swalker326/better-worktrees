@@ -50,6 +50,12 @@ bun run docs:dev
 - Tagging `vX.Y.Z` runs `.github/workflows/release.yml`, validates the project, builds cross-platform binaries, publishes platform packages, then publishes `better-worktree`.
 - Releases are configured for npm Trusted Publishing (GitHub OIDC), so no `NPM_TOKEN` secret is required.
 
+## Local release helpers
+
+- `./scripts/publish-packages.sh --dry-run`: build binaries + dry-run publish all packages.
+- `./scripts/publish-packages.sh`: build binaries + publish all packages from local machine.
+- `./scripts/release-version.sh 0.1.1`: bump all publish package versions, commit, tag, and push.
+
 ## CLI commands
 
 ```bash
