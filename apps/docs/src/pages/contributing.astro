@@ -1,0 +1,40 @@
+---
+import DocsLayout from "../layouts/DocsLayout.astro";
+---
+
+<DocsLayout
+  title="Contributing | better-worktree"
+  description="How to build better-worktree from source and contribute changes."
+  pageTitle="Contributing"
+>
+  <p class="muted">
+    Use this guide if you want to build the tool locally, run verification, or open a pull
+    request.
+  </p>
+
+  <h2>Local development setup</h2>
+  <pre><code>git clone https://github.com/your-org/better-worktree.git
+cd better-worktree
+bun install</code></pre>
+
+  <h2>Run the apps</h2>
+  <pre><code>bun run start      # CLI + TUI
+bun run docs:dev   # Docs site</code></pre>
+
+  <h2>Required verification</h2>
+  <pre><code>bun test
+bunx tsc --noEmit</code></pre>
+
+  <h2>Before opening a PR</h2>
+  <ul class="muted">
+    <li>Add or update tests for behavior changes.</li>
+    <li>Keep changes focused and include a clear description of intent.</li>
+    <li>Update docs when command behavior or workflows change.</li>
+  </ul>
+
+  <h2>Detailed guide</h2>
+  <p class="muted">
+    For repository-level contribution policies, see <code>CONTRIBUTING.md</code> in the project
+    root.
+  </p>
+</DocsLayout>

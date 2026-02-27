@@ -2,8 +2,11 @@
 import DocsLayout from "../layouts/DocsLayout.astro";
 ---
 
-<DocsLayout title="Commands | better-worktree" description="CLI and TUI command reference.">
-  <h1>Command reference</h1>
+<DocsLayout
+  title="Commands | better-worktree"
+  description="CLI and TUI command reference."
+  pageTitle="Command Reference"
+>
   <p class="muted">Core commands available from <code>bwt</code>.</p>
 
   <h2>Worktree commands</h2>
@@ -11,12 +14,23 @@ import DocsLayout from "../layouts/DocsLayout.astro";
 bwt create &lt;name&gt; [-R &lt;repo&gt;] [--branch &lt;branch&gt;] [--base &lt;base&gt;] [--path &lt;dir&gt;] [--json]
 bwt delete &lt;name|path&gt; [-R &lt;repo&gt;] [--yes] [--force]</code></pre>
 
+  <ul class="muted">
+    <li><code>bwt list</code> shows every tracked worktree for a repo.</li>
+    <li><code>bwt create</code> creates a new worktree with branch and base controls.</li>
+    <li><code>bwt delete</code> removes by worktree name or absolute path.</li>
+  </ul>
+
   <h2>Repo commands</h2>
   <pre><code>bwt repo list
 bwt repo add &lt;path&gt; [--name &lt;alias&gt;]
 bwt repo remove &lt;path&gt;
 bwt repo use &lt;path&gt;
 bwt repo set-copy &lt;path&gt; --rule &lt;from[:to]&gt; [--rule &lt;from[:to]&gt; ...]</code></pre>
+
+  <ul class="muted">
+    <li>Add repositories once, then select them by alias with <code>-R</code>.</li>
+    <li>Use copy rules to bring required files into new worktrees automatically.</li>
+  </ul>
 
   <h2>TUI keys</h2>
   <pre><code>j / k or arrows  move selection
@@ -28,4 +42,6 @@ r                refresh
 s                switch to repo picker
 ?                help
 q                quit</code></pre>
+
+  <p class="muted">Open the TUI with <code>bun run start</code>, then use these keys immediately.</p>
 </DocsLayout>

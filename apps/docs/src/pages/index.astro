@@ -5,36 +5,72 @@ import DocsLayout from "../layouts/DocsLayout.astro";
 <DocsLayout
   title="better-worktree docs"
   description="A git worktree manager with one-off commands and a keyboard-first TUI."
+  pageTitle="What better-worktree does"
 >
   <section class="hero">
     <p class="eyebrow">Git worktree workflow</p>
-    <h1>Ship branches faster with less path juggling.</h1>
+    <h2>Ship branches faster without path juggling.</h2>
     <p class="muted">
-      <code>bwt</code> keeps your repos and worktrees in one place, so creating, switching,
-      and cleaning up branches is one command or keypress away.
+      <code>bwt</code> keeps repositories and worktrees in one keyboard-first flow so creating,
+      switching, and cleaning up branches is always one command away.
     </p>
+    <div class="link-row">
+      <a class="chip-link" href="/getting-started">Start in 2 minutes</a>
+      <a class="chip-link" href="/commands">See command reference</a>
+    </div>
   </section>
+
+  <h2>What we do</h2>
+  <p class="muted">
+    better-worktree combines scriptable CLI commands with an interactive TUI so teams can move
+    between branch tasks without losing context.
+  </p>
 
   <section class="grid">
     <article class="card">
-      <h3>One-off commands</h3>
+      <h3>CLI for quick operations</h3>
       <p class="muted">
-        List, create, and delete worktrees from scripts or your terminal without entering the
-        interactive UI.
+        Use one-off commands in scripts or terminal sessions to list, create, and remove
+        worktrees with predictable output.
       </p>
     </article>
     <article class="card">
-      <h3>Keyboard-first TUI</h3>
+      <h3>TUI for daily flow</h3>
       <p class="muted">
-        Open without arguments to browse repos, inspect statuses, and manage worktrees quickly.
+        Launch without arguments to manage repos, inspect status, and create worktrees without
+        leaving the keyboard.
       </p>
     </article>
     <article class="card">
       <h3>Repo-aware defaults</h3>
       <p class="muted">
-        Save repository paths and copy rules in config so new worktrees start with the files you
-        need.
+        Store repository aliases and copy rules in config so each new worktree starts with the
+        files and defaults your team expects.
       </p>
+    </article>
+  </section>
+
+  <h2>How to do it</h2>
+  <section class="stack">
+    <article class="step">
+      <h3>1. Install and open</h3>
+      <p class="muted">Install <code>bwt</code> from npm and launch the TUI workflow.</p>
+      <pre><code>npm install -g better-worktree
+bwt</code></pre>
+    </article>
+
+    <article class="step">
+      <h3>2. Register repos</h3>
+      <p class="muted">Save repository paths once so worktree creation is faster next time.</p>
+      <pre><code>bwt repo add /path/to/repo --name app
+bwt repo list</code></pre>
+    </article>
+
+    <article class="step">
+      <h3>3. Create and clean worktrees</h3>
+      <p class="muted">Spin up task branches quickly, then remove stale worktrees safely.</p>
+      <pre><code>bwt create feat-login -R app --branch feat/login
+bwt delete feat-login -R app</code></pre>
     </article>
   </section>
 </DocsLayout>

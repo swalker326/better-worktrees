@@ -1,12 +1,15 @@
 ---
 import "../styles/global.css";
+import { docsNavigation, isDocLinkActive } from "../content/docs";
 
 interface Props {
   title: string;
   description: string;
+  pageTitle?: string;
 }
 
-const { title, description } = Astro.props;
+const { title, description, pageTitle } = Astro.props;
+const pathname = Astro.url.pathname;
 ---
 
 <!doctype html>
@@ -18,22 +21,53 @@ const { title, description } = Astro.props;
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <title>{title}</title>
   </head>
   <body>
-    <header>
-      <strong>better-worktree</strong>
-      <nav>
-        <a href="/">Overview</a>
-        <a href="/getting-started">Getting Started</a>
-        <a href="/commands">Commands</a>
-      </nav>
+    <header class="topbar">
+      <a class="brand" href="/">
+        <span class="brand-dot" aria-hidden="true"></span>
+        better-worktree
+      </a>
+      <a class="topbar-link" href="/getting-started">Quick Start</a>
     </header>
-    <main>
-      <slot />
-    </main>
+
+    <div class="shell">
+      <aside class="sidebar" aria-label="Documentation">
+        {
+          docsNavigation.map((section) => (
+            <section class="sidebar-group">
+              <p class="sidebar-title">{section.title}</p>
+              <nav>
+                {section.links.map((link) => (
+                  <a
+                    class={`sidebar-link ${isDocLinkActive(pathname, link.href) ? "is-active" : ""}`}
+                    href={link.href}
+                    aria-current={isDocLinkActive(pathname, link.href) ? "page" : undefined}
+                  >
+                    {link.label}
+                  </a>
+                ))}
+              </nav>
+            </section>
+          ))
+        }
+      </aside>
+
+      <main>
+        {
+          pageTitle && (
+            <div class="page-intro">
+              <p class="eyebrow">Documentation</p>
+              <h1>{pageTitle}</h1>
+            </div>
+          )
+        }
+        <slot />
+      </main>
+    </div>
   </body>
 </html>

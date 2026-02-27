@@ -9,11 +9,10 @@
 - `packages/better-worktree`: npm launcher package (`bwt`)
 - `packages/better-worktree-*`: platform-specific binary packages
 
-## Install dependencies
+## Contributing and local builds
 
-```bash
-bun install
-```
+For local development setup, build/test commands, and contribution workflow, see
+`CONTRIBUTING.md`.
 
 ## Install CLI from npm
 
@@ -29,32 +28,6 @@ npx better-worktree --help
 
 The npm install path does not require Bun on the user's machine. It installs a prebuilt
 platform binary and launches it via `bwt`.
-
-## Run the CLI
-
-```bash
-bun run start
-```
-
-No args opens the TUI. Commands run in one-off mode.
-
-## Run the docs site
-
-```bash
-bun run docs:dev
-```
-
-## CI and release automation
-
-- PRs and pushes to `main` run `.github/workflows/ci.yml`.
-- Tagging `vX.Y.Z` runs `.github/workflows/release.yml`, validates the project, builds cross-platform binaries, publishes platform packages, then publishes `better-worktree`.
-- Releases are configured for npm Trusted Publishing (GitHub OIDC), so no `NPM_TOKEN` secret is required.
-
-## Local release helpers
-
-- `./scripts/publish-packages.sh --dry-run`: build binaries + dry-run publish all packages.
-- `./scripts/publish-packages.sh`: build binaries + publish all packages from local machine.
-- `./scripts/release-version.sh 0.1.1`: bump all publish package versions, commit, tag, and push.
 
 ## CLI commands
 

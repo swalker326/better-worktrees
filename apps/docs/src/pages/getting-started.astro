@@ -2,22 +2,40 @@
 import DocsLayout from "../layouts/DocsLayout.astro";
 ---
 
-<DocsLayout title="Getting Started | better-worktree" description="Install and run better-worktree.">
-  <h1>Getting started</h1>
-  <p class="muted">Install dependencies, then run the CLI from the monorepo root.</p>
+<DocsLayout
+  title="Getting Started | better-worktree"
+  description="Install and run better-worktree."
+  pageTitle="Getting Started"
+>
+  <p class="muted">
+    Install <code>bwt</code> from npm, run the TUI for daily flow, and use one-off commands for
+    automation.
+  </p>
 
   <h2>Install</h2>
-  <pre><code>bun install</code></pre>
+  <pre><code>npm install -g better-worktree</code></pre>
+  <p class="muted">Or run without global install:</p>
+  <pre><code>npx better-worktree --help</code></pre>
 
-  <h2>Run in TUI mode</h2>
-  <pre><code>bun run start</code></pre>
+  <h2>Run the TUI</h2>
+  <pre><code>bwt</code></pre>
+  <p class="muted">
+    This launches the interactive workflow for browsing repos, creating worktrees, and cleanups.
+  </p>
 
-  <h2>Run a one-off command</h2>
-  <pre><code>bun run --filter better-worktree-cli start -- list</code></pre>
+  <h2>Run one-off CLI commands</h2>
+  <pre><code>bwt list
+bwt create feature-a -R app</code></pre>
 
-  <h2>Global config location</h2>
-  <p>
-    Settings are stored in <code>~/.config/bwt/config.json</code>. This includes repo aliases,
-    default branch, worktree root, naming templates, and copy rules.
+  <h2>Configuration file</h2>
+  <p class="muted">
+    Global settings live in <code>~/.config/bwt/config.json</code>. Store repo aliases, preferred
+    default branch, naming templates, and copy rules there.
+  </p>
+
+  <h2>Next step</h2>
+  <p class="muted">
+    Continue to <a href="/commands">Commands</a> for the full reference and key bindings. If you
+    want to build from source or contribute, see <a href="/contributing">Contributing</a>.
   </p>
 </DocsLayout>
