@@ -9,6 +9,7 @@
   --color-ring: #38bdf8;
   --color-accent: #38bdf8;
   --color-secondary: #f472b6;
+  --color-secondary-dark: #db2777;
 }
 
 @layer base {
@@ -104,7 +105,7 @@
   }
 
   .chip-link:hover {
-    @apply border-secondary/40 bg-muted no-underline text-secondary;
+    @apply border-secondary/40 bg-muted no-underline text-secondary-dark;
   }
 
   .grid {

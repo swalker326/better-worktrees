@@ -52,7 +52,7 @@ const pathname = Astro.url.pathname;
               <nav class="grid gap-1">
                 {section.links.map((link) => (
                   <a
-                    class={`block border-l-2 py-1 pl-2 text-[13px] no-underline transition-colors hover:text-foreground ${
+                    class={`block border-l-2 py-1 pl-2 text-[13px] no-underline transition-colors hover:text-secondary-dark ${
                       isDocLinkActive(pathname, link.href)
                         ? "border-l-secondary/70 font-medium text-secondary"
                         : "border-l-transparent text-muted-foreground"
