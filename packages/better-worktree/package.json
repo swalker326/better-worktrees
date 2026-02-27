@@ -1,6 +1,6 @@
 {
   "name": "better-worktree",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Git worktree manager with one-off commands and an OpenTUI mode",
   "private": false,
   "type": "module",
