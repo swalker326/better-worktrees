@@ -1,6 +1,6 @@
 {
   "name": "better-worktree",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "Git worktree manager with one-off commands and an OpenTUI mode",
   "private": false,
   "type": "module",
@@ -16,14 +16,14 @@
     "access": "public"
   },
   "optionalDependencies": {
-    "better-worktree-darwin-arm64": "0.1.8",
-    "better-worktree-darwin-x64": "0.1.8",
-    "better-worktree-linux-arm64": "0.1.8",
-    "better-worktree-linux-arm64-musl": "0.1.8",
-    "better-worktree-linux-x64": "0.1.8",
-    "better-worktree-linux-x64-musl": "0.1.8",
-    "better-worktree-windows-arm64": "0.1.8",
-    "better-worktree-windows-x64": "0.1.8"
+    "better-worktree-darwin-arm64": "0.1.9",
+    "better-worktree-darwin-x64": "0.1.9",
+    "better-worktree-linux-arm64": "0.1.9",
+    "better-worktree-linux-arm64-musl": "0.1.9",
+    "better-worktree-linux-x64": "0.1.9",
+    "better-worktree-linux-x64-musl": "0.1.9",
+    "better-worktree-windows-arm64": "0.1.9",
+    "better-worktree-windows-x64": "0.1.9"
   },
   "engines": {
     "node": ">=18"
